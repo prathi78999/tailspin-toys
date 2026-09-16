@@ -106,6 +106,13 @@ const game = await getGameById(getDatabase(), Number(id));
 
 There is no Svelte/React layer. When a page genuinely needs client behaviour, add a scoped Astro `<script>` using standard DOM APIs. Prefer native interactive elements (`<button>`, `<a href>`) so keyboard and focus behaviour come for free.
 
+## Game Card Ratings
+
+- Keep the existing `GameCard.astro` layout intact when adding card metadata.
+- Render the shared `StarRating.astro` component when `game.starRating` is a number.
+- When `game.starRating` is `null`, display the exact fallback text `No rating yet`.
+- Preserve the `data-testid="game-rating"` hook for rating output so the two states can be tested consistently.
+
 ## TypeScript
 
 - Use TypeScript for type-safe props

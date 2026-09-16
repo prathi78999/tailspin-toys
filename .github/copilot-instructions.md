@@ -51,6 +51,7 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
 - Dynamic routes use `getStaticPaths()` + `export const prerender = true`
 - Provide a branded `404.astro` (unknown routes are real 404s under static output)
 - Only add a scoped Astro `<script>` when genuine client interactivity is required
+- Game cards must display each game's `starRating`; render the shared `StarRating.astro` component for numeric ratings and the exact text `No rating yet` when the value is `null`
 
 ### Styling
 
@@ -90,7 +91,7 @@ The application lives at the repository root:
 
 - `db/`: Drizzle schema, migrations, transforms, seed, and `games.csv`
 - `src/lib/`: Node SQLite client (`db.ts`) and data-access helpers (`games.ts`)
-- `src/components/`: reusable `.astro` components
+- `src/components/`: reusable `.astro` components, including `GameCard.astro` and the shared `StarRating.astro`
 - `src/layouts/`: Astro layout templates
 - `src/pages/`: Astro page routes (`index.astro` listing, `game/[id].astro`, `404.astro`, `about.astro`)
 - `src/styles/`: CSS and Tailwind configuration
